@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+
+import { Toaster } from "@/components/ui/sonner"
+
 import "./globals.css";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,8 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_BASE_URL}/site_image.png`} />
+      </Head>
       <body className={inter.className}>
-        <main className="h-screen w-screen">{children}</main></body>
+        <main className="h-screen w-screen">{children}</main>
+        <Toaster />
+      </body>
     </html>
   );
 }
