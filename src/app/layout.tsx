@@ -21,6 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@se4weed_jp" />
+        <meta name="twitter:title" content="推し株診断" />
+        <meta name="twitter:description" content="あなたの推し株を診断します。株式投資への第一歩を踏み出しましょう！" />
         <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_BASE_URL}/twitter-card.png`} />
       </Head>
       <body className={inter.className}>
