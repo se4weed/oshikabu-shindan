@@ -55,6 +55,7 @@ export const PanelistForm = ({ oshi }: Props) => {
       toast.error("全体のフォームにエラーがあります。");
       return;
     }
+    const oshikabuName = oshikabu.map((o) => o.name);
     const response = await fetch("/api/panelists", {
       method: "POST",
       headers: {
@@ -62,7 +63,7 @@ export const PanelistForm = ({ oshi }: Props) => {
       },
       body: JSON.stringify({
         ...values,
-        oshi: oshikabu.indexOf(oshi),
+        oshi: oshikabuName.indexOf(oshi),
       }),
     });
     const res = await response.json();
