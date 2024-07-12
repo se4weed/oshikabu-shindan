@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_BASE_URL}/site_image.png`} />
+        <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_BASE_URL}/twitter-card.png`} />
       </Head>
       <body className={inter.className}>
         <main className="h-screen w-screen">{children}</main>
