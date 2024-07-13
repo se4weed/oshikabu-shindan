@@ -8,7 +8,7 @@ export async function GET(req: Request, { params }: { params: { id: string }}) {
   try {
     const { data, error } = await supabase
       .from('panelists')
-      .select('id, oshikabu')
+      .select('*')
       .eq('id', params.id)
 
     if (error) {
@@ -27,15 +27,16 @@ export async function POST(req: Request, { params }: { params: { id: string }}) 
   try {
     const { data, error } = await supabase
       .from('panelists')
-      .update('buyed, true')
+      .update({ buyed: 'true' })
       .eq('id', params.id)
+      .select('*')
 
     if (error) {
       console.error("Error inserting data:", error)
       return new Response(JSON.stringify({ error: error.message }), { status: 422 });
     }
     console.log(data)
-    return new Response(JSON.stringify({ id: params.id }), { status: 200 });
+    return new Response(JSON.stringify({ id: data[0].id }), { status: 200 });
   } catch (err) {
     console.error("Unexpected error:", err)
     return new Response(JSON.stringify({ error: "Unexpected error occurred" }), { status: 500 });
