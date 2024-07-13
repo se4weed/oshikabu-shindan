@@ -40,13 +40,13 @@ export default function Result() {
   const handleOnClick = () => {
     setPending(true)
     handleBuy()
+    window.open("https://froggy.smbcnikko.co.jp/promo/lp_account/ad/")
     setPending(false)
   }
   const handleBuy = async () => {
     const response = await fetch(`/api/panelists/${params.id}`, {
       method: 'POST'
     })
-    if (response.ok) window.open("https://froggy.smbcnikko.co.jp/promo/lp_account/ad/")
     else console.error('Error buying oshikabu')
   }
   const twitterShareContext = `私の推し株は${oshi?.oshikabu.name}です！%0a${oshi?.oshikabu.companies}に注目しています！%0a%0a%0aあなたの推し株を診断します。株式投資への第一歩を踏み出しましょう！%0a`
