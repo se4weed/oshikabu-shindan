@@ -47,7 +47,7 @@ export default function Result() {
     const response = await fetch(`/api/panelists/${params.id}`, {
       method: 'POST'
     })
-    else console.error('Error buying oshikabu')
+    if (!response.ok) console.error('Error buying oshikabu')
   }
   const twitterShareContext = `私の推し株は${oshi?.oshikabu.name}です！%0a${oshi?.oshikabu.companies}に注目しています！%0a%0a%0aあなたの推し株を診断します。株式投資への第一歩を踏み出しましょう！%0a`
   return (
